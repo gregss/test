@@ -35,4 +35,17 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
+    'crypto-bridge' => [
+        'api' => [
+            'host' => env('CRYPTO_BRIDGE_API_HOST', 'https://api.crypto-bridge.org/api/'),
+        ],
+    ],
+    'coingecko' => [
+        'api' => [
+            'host' => env(
+                'COINGECKO_API_HOST',
+                'https://api.coingecko.com/api/'
+            ),
+        ],
+    ],
 ];
