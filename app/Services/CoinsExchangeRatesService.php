@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Entities\ExchangeRates;
+use App\Services\ApiServices\Exception;
 use App\Services\Coins\BTC;
 use App\Services\Coins\TRTT as TRTTCoinService;
 use App\Services\Coins\XORN as XORNCoinService;
@@ -32,6 +33,22 @@ class CoinsExchangeRatesService
         $this->setRates(ETHCoinService::CODE, BTC::CODE, $eth_rate);
         $tron_rate = TRONCoinService::getCurrentRate();
         $this->setRates(TRONCoinService::CODE, BTC::CODE, $tron_rate);
+    }
+
+    /**
+     * Получить курс монеты
+     * @param $coin1
+     * @param $coin2
+     * @return mixed
+     */
+    public function getRate($coin1, $coin2)
+    {
+        $rate = ExchangeRates::query()
+            ->where(ExchangeRates::FIELD_COIN1, '=', strtoupper($coin1))
+            ->where(ExchangeRates::FIELD_COIN2, '=', strtoupper($coin2))
+            ->first();
+
+        return $rate;
     }
 
     /**

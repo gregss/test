@@ -28,4 +28,20 @@ class ExchangeRates extends Model
     {
         return $this->getAttribute(self::FIELD_VALUE);
     }
+
+    /**
+     * @return string
+     */
+    public function getCoin1(): string
+    {
+        return $this->getAttribute(self::FIELD_COIN1);
+    }
+
+    /**
+     * @return string
+     */
+    public function getCoin2(): string
+    {
+        return $this->getAttribute(self::FIELD_COIN2);
+    }
 }

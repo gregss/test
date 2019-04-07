@@ -16,3 +16,8 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// api V1
+// получить текущий курс монеты
+//todo описание в swagger, доступ по токену, статусы в ответе
+Route::get('v1/coin/{coin}/course', 'Api\v1\Coin\Course');
