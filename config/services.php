@@ -48,4 +48,10 @@ return [
             ),
         ],
     ],
+    'xornnet' => [
+        'host' => env('XORNNET_HOST'),
+        'port' => env('XORNNET_PORT'),
+        'login' => env('XORNNET_LOGIN'),
+        'password' => env('XORNNET_PASSWORD'),
+    ],
 ];
